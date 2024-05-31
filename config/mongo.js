@@ -9,7 +9,7 @@ const dbConnect = () => {
         if (!err) {
             console.log('**** CONEXION CORRECTA ****')
         } else {
-            console.log('***** ERROR DE CONEXION ****')
+            console.log('***** ERROR DE CONEXION ****',err)
         }
     })
 }
