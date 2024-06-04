@@ -13,6 +13,7 @@ const loginCtrl = async (req, res) => {
         if (!user) {
             res.status(404)
             res.send({ error: 'User not found' })
+            return
         }
 
         const checkPassword = await compare(password, user.password) //TODO: Contraseña!
@@ -22,7 +23,7 @@ const loginCtrl = async (req, res) => {
 
         if (checkPassword) { //TODO Contraseña es correcta!
             res.send({
-                data: user,
+                //data: user,
                 tokenSession
             })
             return
