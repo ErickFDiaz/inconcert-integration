@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  api-inconcert:
+    image: api-inconcert:latest
+    container_name: inconcert
+    restart: always
+    ports:
+      - "7070:7070"
+    env_file:
+      - .env
