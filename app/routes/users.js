@@ -8,14 +8,14 @@ const { validateCreate } = require('../validators/users')
 
 router.get('/', checkAuth, checkRoleAuth(['admin']), getItems)
 
-router.get('/:id', checkOrigin, getItem)
+router.get('/:id', checkOrigin, checkRoleAuth(['admin']), getItem)
 
 //TODO: Donde recibimos data
-router.post('/', checkOrigin, validateCreate, createItem)
+router.post('/', checkOrigin, validateCreate, checkRoleAuth(['admin']), createItem)
 
-router.patch('/:id', updateItem)
+router.patch('/:id', checkRoleAuth(['admin']), updateItem)
 
-router.delete('/:id', deleteItem)
+router.delete('/:id', checkRoleAuth(['admin']), deleteItem)
 
 
 module.exports = router
