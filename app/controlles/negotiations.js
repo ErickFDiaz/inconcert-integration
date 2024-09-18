@@ -4,7 +4,7 @@ const negotiationModel = require('../models/negotiations')
 const createItems = async (req, res) => {
     try {
         const negotiations = req.body.data; // Aquí esperamos un array de objetos
-        
+        console.log("Body RequestXXXXXX", negotiations);
         const resDetails = await negotiationModel.insertMany(negotiations);
 
         res.send({ data: resDetails });
